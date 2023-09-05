@@ -1,0 +1,83 @@
+.app-container {
+    min-height: 350px;
+}
+
+/* for board.jsx */
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* Adjust the number of columns as needed */
+    grid-gap: 4px; /* Adjust the gap between cells */
+    width: 500px; /* Adjust the board width */
+    height: 500px; /* Adjust the board height */
+    background-color: #f0f0f0; /* Board background color */
+    border: 2px solid #000; /* Board border */
+    border-radius: 8px; /* Board border radius */
+    padding: 10px; /* Add padding to the board container */
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff; /* Cell background color */
+    border: 1px solid #ccc; /* Cell border */
+    border-radius: 4px; /* Cell border radius */
+    font-size: 18px; /* Font size for cell content */
+    font-weight: bold; /* Font weight for cell content */
+}
+
+/* components/Board.css */
+/* Define styles for the dots */
+.dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+/* Style for active Player 1's dot */
+.dot-player1.active {
+    border: 2px solid #ff0000; /* Add a red border to highlight Player 1's active dot */
+}
+
+/* Style for active Player 2's dot */
+.dot-player2.active {
+    border: 2px solid #00ff00; /* Add a green border to highlight Player 2's active dot */
+}
+
+/*Player.jsx*/
+/* components/Player.css */
+/* Player styles */
+.player {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add spacing between players */
+  }
+  
+  /* Icon styles */
+  .player-icon {
+    font-size: 24px;
+    margin-right: 10px; /* Add spacing between the icon and player info */
+  }
+  
+  /* Player 1 styles */
+  .player1 {
+    color: #ff0000; /* Red color for Player 1's icon and name */
+  }
+  
+  /* Player 2 styles */
+  .player2 {
+    color: #00ff00; /* Green color for Player 2's icon and name */
+  }
+  
+  /* Player info styles */
+  .player-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .player-name {
+    font-weight: bold;
+  }
+  
