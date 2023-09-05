@@ -1,5 +1,5 @@
-# next-js-13-mysql-registration-login-example
+# next-js-13-nextJs-example
 
-Next.js 13 + MySQL - User Registration and Login Example
+Next.js 13 + MySQL - User Registration and Login Example with CRUD features 
+snake and ladder game implimentation 
 
-Documentation at https://jasonwatmore.com/next-js-13-mysql-user-registration-and-login-tutorial-with-example-app
