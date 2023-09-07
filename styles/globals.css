@@ -27,23 +27,28 @@
     font-weight: bold; /* Font weight for cell content */
 }
 
+.cell:hover {
+    outline: none;
+    cursor: pointer;
+    transform: scale(1.2); 
+}
 /* components/Board.css */
 /* Define styles for the dots */
 .dot {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     position: absolute;
 }
 
 /* Style for active Player 1's dot */
 .dot-player1.active {
-    border: 2px solid #ff0000; /* Add a red border to highlight Player 1's active dot */
+    border: 4px solid #084298; /* Add a red border to highlight Player 1's active dot */
 }
 
 /* Style for active Player 2's dot */
 .dot-player2.active {
-    border: 2px solid #00ff00; /* Add a green border to highlight Player 2's active dot */
+    border: 4px solid #0f5132; /* Add a green border to highlight Player 2's active dot */
 }
 
 /*Player.jsx*/
@@ -63,12 +68,12 @@
   
   /* Player 1 styles */
   .player1 {
-    color: #ff0000; /* Red color for Player 1's icon and name */
+    color: #084298; /* Red color for Player 1's icon and name */
   }
   
   /* Player 2 styles */
   .player2 {
-    color: #00ff00; /* Green color for Player 2's icon and name */
+    color: #0f5132; /* Green color for Player 2's icon and name */
   }
   
   /* Player info styles */

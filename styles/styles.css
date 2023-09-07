@@ -1,0 +1,233 @@
+/* SnakeLadderSettingsDialog.css */
+
+.settings-dialog {
+    background-color: #f7f7f7; /* Light gray background */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .settings-dialog h2 {
+    font-size: 1.8rem; /* Larger font size */
+    margin-bottom: 20px;
+    color: #007bff; /* Blue heading color */
+  }
+  
+  .settings-dialog label {
+    display: block;
+    margin-bottom: 15px;
+    text-align: left;
+    font-weight: bold;
+    color: #333; /* Dark text color */
+  }
+  
+  .settings-dialog input[type="number"],
+  .settings-dialog select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  .settings-dialog button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold; /* Bold button text */
+  }
+  
+  .settings-dialog button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+
+  /*Dice styling */
+  /* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #70c1b3;
+  } */
+  
+  .roll-button {
+    position: relative;
+    top:80px;
+    left:10px;
+    padding: 15px 50px;
+    color: #fff;
+    background-color: #f4d35e;
+    border: none;
+    font-size: 20px;
+    border-radius: 20px; 
+    box-shadow: 1px 3px #50514F;
+    outline: none;
+    transition: .3s; 
+  }
+  
+  .roll-button:hover, button:active {
+    outline: none;
+    background: #50514F;
+    cursor: pointer;
+    transform: translateY(15px); 
+  }
+  
+  .game {
+    position: relative;
+    width: auto;
+    height: 100%; 
+  }
+  
+  /* .container {
+    position: relative;
+    display: inline-block;
+    top: 200px;
+  } */
+  
+  .dice {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transition: transform 1s; 
+  }
+  
+  .mark {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin: -10px 5px 5px -10px;
+    border-radius: 20px;
+    background-color: #f25f5c;
+    box-shadow: inset 2px 2px #d90429;
+  }
+  
+  .dice-one {
+    position: absolute;
+    left: 150px; 
+  }
+  
+  .side {
+    position: absolute;
+    background-color: #000000;
+    border-radius:5px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    line-height: 2em;
+  }
+  
+  .side:nth-child(1) {
+    transform: translateZ(3.1em); }
+  
+  .side:nth-child(6) {
+    transform: rotateY(90deg) translateZ(3.1em); }
+  
+  .side:nth-child(3) {
+    transform: rotateY(-90deg) translateZ(3.1em); }
+  
+  .side:nth-child(4) {
+    transform: rotateX(90deg) translateZ(3.1em); }
+  
+  .side:nth-child(5) {
+    transform: rotateX(-90deg) translateZ(3.1em); }
+  
+  .side:nth-child(2) {
+    transform: rotateY(-180deg) translateZ(3.1em); }
+  
+  .show-1 {
+    transform: rotateX(720deg) rotateZ(-720deg); }
+  
+  .show-6 {
+    transform: rotateY(-450deg) rotateZ(-1440deg); }
+  
+  .show-3 {
+    transform: rotateY(810deg) rotateZ(720deg); }
+  
+  .show-4 {
+    transform: rotateX(-810deg) rotateZ(-1080deg); }
+  
+  .show-5 {
+    transform: rotateX(450deg) rotateZ(-720deg); }
+  
+  .show-2 {
+    transform: rotateX(-900deg) rotateZ(1080deg); }
+  
+  .two-1, .three-1, .four-1, .five-1, .six-1 {
+    top: 20%;
+    left: 20%; 
+  }
+  
+  .four-3, .five-3, .six-4 {
+    top: 20%;
+    left: 80%; }
+  
+  .one-1, .three-2, .five-5 {
+    top: 50%;
+    left: 50%; }
+  
+  .four-2, .five-2, .six-3 {
+    top: 80%;
+    left: 20%; }
+  
+  .two-2, .three-3, .four-4, .five-4, .six-6 {
+    top: 80%;
+    left: 80%; }
+  
+  .six-2 {
+    top: 50%;
+    left: 20%; }
+  
+  .six-5 {
+    top: 50%;
+    left: 80%; 
+  }
+  
+
+  /* Bird.css */
+.bird {
+    position: absolute;
+    top: 50%; /* Center the bird vertically */
+    width: 50px; /* Adjust the bird's size */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 100; /* Ensure the bird appears above other elements */
+  }
+  
+  /* Fly to the right */
+  .bird.fly-right {
+    animation: fly-right 2s linear;
+  }
+  
+  /* Fly to the left */
+  .bird.fly-left {
+    animation: fly-left 2s linear;
+  }
+  
+  @keyframes fly-right {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: 100%; /* Move to the endCell */
+    }
+  }
+  
+  @keyframes fly-left {
+    0% {
+      left: 100%; /* Start from the endCell */
+    }
+    100% {
+      left: 0; /* Move to the startCell */
+    }
+  }
+  
