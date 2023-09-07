@@ -10,10 +10,8 @@ function Alert() {
     const [alert, setAlert] = useState(null);
 
     useEffect(() => {
-        // subscribe to new alert notifications
         const subscription = alertService.alert.subscribe(alert => setAlert(alert));
 
-        // unsubscribe when the component unmounts
         return () => subscription.unsubscribe();
     }, []);
 
