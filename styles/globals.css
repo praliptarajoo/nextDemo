@@ -8,8 +8,8 @@
     display: grid;
     grid-template-columns: repeat(10, 1fr); /* Adjust the number of columns as needed */
     grid-gap: 4px; /* Adjust the gap between cells */
-    width: 500px; /* Adjust the board width */
-    height: 500px; /* Adjust the board height */
+    width: 720px; /* Adjust the board width */
+    height: 720px; /* Adjust the board height */
     background-color: #f0f0f0; /* Board background color */
     border: 2px solid #000; /* Board border */
     border-radius: 8px; /* Board border radius */

@@ -18,6 +18,21 @@ const customStyles = {
   },
 };
 
+function toggleFullscreen() {
+  if (document.fullscreenElement) {
+    // Exit full screen
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  } else {
+    // Enter full screen
+    const element = document.documentElement;
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    }
+  }
+}
+
 const SnakeLadderSettingsDialog = ({ isOpen, onSubmit, onClose }) => {
   const [numPlayers, setNumPlayers] = useState(2);
   const [level, setLevel] = useState('easy');
@@ -28,6 +43,7 @@ const SnakeLadderSettingsDialog = ({ isOpen, onSubmit, onClose }) => {
       pathname: '/snake-ladder',
       query: { players: numPlayers, level },
     });
+    toggleFullscreen();
     onClose();
   };
 

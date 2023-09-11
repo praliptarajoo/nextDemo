@@ -8,8 +8,8 @@ function shuffleArray(array) {
 const cells = Array.from({ length: 100 }, (_, i) => i + 1);
 shuffleArray(cells);
 
-const numberOfSnakes = 10;
-const numberOfLadders = 10;
+const numberOfSnakes = 5;
+const numberOfLadders = 5;
 const shuffledSnakes = cells.slice(0, numberOfSnakes);
 const shuffledLadders = cells.slice(numberOfSnakes, numberOfSnakes + numberOfLadders);
 

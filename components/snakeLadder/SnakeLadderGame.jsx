@@ -88,90 +88,93 @@ const SnakeLadderGame = () => {
   };
 
   return (
-    <div className="snake-ladder-game container text-center d-flex align-items-center justify-content-center">
-      <div className="left-content">
-        <h1>Snake and Ladder Game</h1>
+    <div className="snake-ladder-game container text-center">
+      <div className="row justify-content-center">
+        <div className="col">
         {players.length > 0 ? (
-          <>
-            <div className="players-info">
-              <Player
-                name={players[0].name}
-                position={players[0].position}
-                playerNumber={players[0].playerNumber}
-                winner={winner && winner.playerNumber === 1}
-              />
-              <Player
-                name={players[1].name}
-                position={players[1].position}
-                playerNumber={players[1].playerNumber}
-                winner={winner && winner.playerNumber === 2}
-              />
-            </div>
-            {!winner ? (
-              <button id="roll" className="roll-button" onClick={rollDice}>
-                Roll Dice
-              </button>
+              <>
+                <div className="players-info">
+                  <Player
+                    name={players[0].name}
+                    position={players[0].position}
+                    playerNumber={players[0].playerNumber}
+                    winner={winner && winner.playerNumber === 1}
+                  />
+                  <Player
+                    name={players[1].name}
+                    position={players[1].position}
+                    playerNumber={players[1].playerNumber}
+                    winner={winner && winner.playerNumber === 2}
+                  />
+                </div>
+                {!winner ? (
+                  <button id="roll" className="roll-button" onClick={rollDice}>
+                    Roll Dice
+                  </button>
+                ) : (
+                  <div className="winner-message">
+                    {winner.name} has won the game!
+                  </div>
+                )}
+              </>
             ) : (
-              <div className="winner-message">
-                {winner.name} has won the game!
-              </div>
+              <p>Loading...</p>
             )}
-          </>
-        ) : (
-          <p>Loading...</p>
-        )}
-        <Dice result={diceResult} />
-        <div className="game">
-          <div className="container">
-            <div id="dice" className="dice dice-one">
-              <div id="dice-one-side-one" className="side one">
-                <div className="mark one-1"></div>
-              </div>
-              <div id="dice-one-side-two" className="side two">
-                <div className="mark two-1"></div>
-                <div className="mark two-2"></div>
-              </div>
-              <div id="dice-one-side-three" className="side three">
-                <div className="mark three-1"></div>
-                <div className="mark three-2"></div>
-                <div className="mark three-3"></div>
-              </div>
-              <div id="dice-one-side-four" className="side four">
-                <div className="mark four-1"></div>
-                <div className="mark four-2"></div>
-                <div className="mark four-3"></div>
-                <div className="mark four-4"></div>
-              </div>
-              <div id="dice-one-side-five" className="side five">
-                <div className="mark five-1"></div>
-                <div className="mark five-2"></div>
-                <div className="mark five-3"></div>
-                <div className="mark five-4"></div>
-                <div className="mark five-5"></div>
-              </div>
-              <div id="dice-one-side-six" className="side six">
-                <div className="mark six-1"></div>
-                <div className="mark six-2"></div>
-                <div className="mark six-3"></div>
-                <div className="mark six-4"></div>
-                <div className="mark six-5"></div>
-                <div className="mark six-6"></div>
+        </div>   
+        <div className="col">
+          {players.length > 0 ? (
+            <Board
+              cells={Array.from({ length: 100 }, (_, i) => i + 1)}
+              player1Position={players[0].position}
+              player2Position={players[1].position}
+              birdClassName={birdClassName}
+            />
+          ) : (
+            <p>loading...</p>
+          )}
+        </div>
+        <div className="col">
+            <Dice result={diceResult} />
+            <div className="game">
+              <div className="container">
+                <div id="dice" className="dice dice-one">
+                  <div id="dice-one-side-one" className="side one">
+                    <div className="mark one-1"></div>
+                  </div>
+                  <div id="dice-one-side-two" className="side two">
+                    <div className="mark two-1"></div>
+                    <div className="mark two-2"></div>
+                  </div>
+                  <div id="dice-one-side-three" className="side three">
+                    <div className="mark three-1"></div>
+                    <div className="mark three-2"></div>
+                    <div className="mark three-3"></div>
+                  </div>
+                  <div id="dice-one-side-four" className="side four">
+                    <div className="mark four-1"></div>
+                    <div className="mark four-2"></div>
+                    <div className="mark four-3"></div>
+                    <div className="mark four-4"></div>
+                  </div>
+                  <div id="dice-one-side-five" className="side five">
+                    <div className="mark five-1"></div>
+                    <div className="mark five-2"></div>
+                    <div className="mark five-3"></div>
+                    <div className="mark five-4"></div>
+                    <div className="mark five-5"></div>
+                  </div>
+                  <div id="dice-one-side-six" className="side six">
+                    <div className="mark six-1"></div>
+                    <div className="mark six-2"></div>
+                    <div className="mark six-3"></div>
+                    <div className="mark six-4"></div>
+                    <div className="mark six-5"></div>
+                    <div className="mark six-6"></div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div className="right-content">
-        {players.length > 0 ? (
-          <Board
-            cells={Array.from({ length: 100 }, (_, i) => i + 1)}
-            player1Position={players[0].position}
-            player2Position={players[1].position}
-            birdClassName={birdClassName}
-          />
-        ) : (
-          <p>loading...</p>
-        )}
       </div>
     </div>
   );

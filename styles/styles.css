@@ -1,7 +1,6 @@
 /* SnakeLadderSettingsDialog.css */
-
 .settings-dialog {
-    background-color: #f7f7f7; /* Light gray background */
+    background-color: #f7f7f7; 
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -42,22 +41,12 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-weight: bold; /* Bold button text */
+    font-weight: bold; 
   }
   
   .settings-dialog button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; 
   }
-  
-
-  /*Dice styling */
-  /* body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #70c1b3;
-  } */
   
   .roll-button {
     position: relative;
@@ -86,12 +75,6 @@
     width: auto;
     height: 100%; 
   }
-  
-  /* .container {
-    position: relative;
-    display: inline-block;
-    top: 200px;
-  } */
   
   .dice {
     position: relative;
@@ -230,4 +213,13 @@
       left: 0; /* Move to the startCell */
     }
   }
-  
+  .ladder-image {
+    position: absolute;
+    height: 200px;
+    width: 100px;
+  }
+  .snake-image {
+    position: absolute;
+    height: 100px;
+    width: 50px;
+  }

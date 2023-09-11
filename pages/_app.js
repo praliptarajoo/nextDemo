@@ -4,17 +4,17 @@ import { useRouter } from 'next/router';
 
 import 'styles/globals.css';
 import 'styles/styles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import { userService } from 'services';
 import { Nav, Alert } from 'components';
 
-export default App;
-
 function App({ Component, pageProps }) {
     const router = useRouter();
     const [user, setUser] = useState(null);
     const [authorized, setAuthorized] = useState(false);
+    const [isFullScreenMode, setIsFullScreenMode] = useState(false);
 
     useEffect(() => {
         // on initial load - run auth check 
@@ -25,13 +25,26 @@ function App({ Component, pageProps }) {
         router.events.on('routeChangeStart', hideContent);
 
         // on route change complete - run auth check 
-        router.events.on('routeChangeComplete', authCheck)
+        router.events.on('routeChangeComplete', authCheck);
 
         // unsubscribe from events in useEffect return function
         return () => {
             router.events.off('routeChangeStart', hideContent);
             router.events.off('routeChangeComplete', authCheck);
         }
+    }, []);
+
+    useEffect(() => {
+        // Check for full screen and update state
+        const handleFullScreenChange = () => {
+            setIsFullScreenMode(!!document.fullscreenElement);
+        };
+
+        document.addEventListener('fullscreenchange', handleFullScreenChange);
+
+        return () => {
+            document.removeEventListener('fullscreenchange', handleFullScreenChange);
+        };
     }, []);
 
     function authCheck(url) {
@@ -49,7 +62,7 @@ function App({ Component, pageProps }) {
             setAuthorized(true);
         }
     }
-
+      
     return (
         <>
             <Head>
@@ -57,7 +70,7 @@ function App({ Component, pageProps }) {
             </Head>
 
             <div className={`app-container ${user ? 'bg-light' : ''}`}>
-                <Nav />
+                {!isFullScreenMode && <Nav />}
                 <Alert />
                 {authorized &&
                     <Component {...pageProps} />
@@ -66,3 +79,5 @@ function App({ Component, pageProps }) {
         </>
     );
 }
+
+export default App;

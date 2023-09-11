@@ -14,6 +14,14 @@ const Board = ({ cells, player1Position, player2Position, birdClassName }) => {
 
         const backgroundColor = cellColors[index % cellColors.length];
 
+        let ladderStart = null;
+        let ladderEnd = null;
+
+        if (isLadder) {
+          ladderStart = cell;
+          ladderEnd = snakeOrLadder.to;
+        }
+
         return (
           <div key={index} className="cell" style={{ backgroundColor }}>
             <div
@@ -23,9 +31,21 @@ const Board = ({ cells, player1Position, player2Position, birdClassName }) => {
               className={`dot dot-player2 ${player2Position === cell ? 'active' : ''}`}
             ></div>
             {isSnake ? (
-              <span className="snake">🐍</span>
+              <span className="snake">
+                <img src="/images/snake.png" alt="snake" className="snake-image" />
+              </span>
             ) : isLadder ? (
-              <span className={`ladder ${birdClassName}`}>🐦</span> 
+              <>
+                <span className={`ladder ${birdClassName} ${ladderStart} ${ladderEnd}`}>
+                  <img src="/images/ladder.png" alt="Ladder" className="ladder-image" />
+                </span>
+                {ladderStart !== null && ladderEnd !== null && (
+                  <div className="route-line `{{ladderEnd}}" style={{
+                    // width: `${Math.abs(ladderEnd - ladderStart) * 44}px`,
+                    // left: `${Math.min(ladderStart, ladderEnd) * 44}px`,
+                  }}></div>
+                )}
+              </>
             ) : null}
             {cell}
           </div>
